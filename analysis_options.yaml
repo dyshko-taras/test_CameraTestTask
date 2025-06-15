@@ -1,28 +1,43 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
-#
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
-
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
 linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
-  rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+  rules:
+    # General rules
+    - avoid_print # Avoid using print statements; prefer a proper logger.
+    - prefer_single_quotes # Use single quotes (' ') instead of double quotes (" ").
+    - require_trailing_commas # Require trailing commas in multi-line parameter lists.
+    
+    # Style and readability
+    - prefer_const_constructors # Use const constructors when possible.
+    - prefer_const_literals_to_create_immutables # Use const for immutable collections (e.g., List, Map).
+    - prefer_final_fields # Use final for fields that are not reassigned.
+    - annotate_overrides # Always annotate overridden methods with @override.
+    - prefer_interpolation_to_compose_strings # Use string interpolation instead of concatenation.
+    - avoid_positional_boolean_parameters # Avoid positional boolean parameters; use named ones instead.
+    - sort_child_properties_last # Place the child property last in widget constructors for better readability.
+    - always_put_control_body_on_new_line # Place the body of control structures (if, for, etc.) on a new line.
+    - always_put_required_named_parameters_first # Place required named parameters before optional ones.
+
+    # Performance rules
+    - avoid_unnecessary_containers # Avoid using Containers when they are unnecessary.
+    - use_key_in_widget_constructors # Add a Key to constructors of custom widgets.
+
+    # Best practices
+    - avoid_field_initializers_in_const_classes # Avoid initializing fields in const classes.
+    - prefer_asserts_in_initializer_lists # Use asserts in constructor initializer lists for validation.
+    - no_logic_in_create_state # Avoid adding logic inside the createState method of StatefulWidget.
+    - type_init_formals # Use type annotations for constructor initializers.
+
+    # Safety and error prevention
+    - avoid_returning_null # Avoid returning null; prefer nullable types or alternatives.
+    - avoid_void_async # Avoid using async functions that return void.
+    - unnecessary_null_checks # Avoid unnecessary null checks on non-nullable variables.
+    - avoid_redundant_argument_values # Avoid passing redundant default values to arguments.
+    - iterable_contains_unrelated_type # Ensure contains() checks are type-safe.
+
+    # Code organization and cleanliness
+    - avoid_classes_with_only_static_members # Avoid creating classes with only static members.
+    - camel_case_extensions # Use camelCase naming for extension methods.
+    - join_return_with_assignment # Combine return statements with assignments when possible.
+    - avoid_setters_without_getters # Avoid creating setters without corresponding getters.
